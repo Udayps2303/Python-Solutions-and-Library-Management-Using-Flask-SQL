@@ -1,0 +1,21 @@
+cat > templates/update_membership.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Update Membership</h2>
+  <form method="post">
+    <label>Membership No (mandatory)
+      <input type="text" name="membership_no" required>
+    </label>
+    <label>Action
+      <select name="action">
+        <option value="extend">Extend</option>
+        <option value="cancel">Cancel</option>
+      </select>
+    </label>
+    <label>If extend, months
+      <input type="number" name="extend_months" value="6" min="1">
+    </label>
+    <input type="submit" value="Update Membership">
+  </form>
+{% endblock %}
+EOF

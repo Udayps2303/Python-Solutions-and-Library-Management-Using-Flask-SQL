@@ -1,0 +1,16 @@
+cat > templates/login.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    <label>Username
+      <input type="text" name="username" required>
+    </label>
+    <label>Password
+      <input type="password" name="password" required>
+    </label>
+    <input type="submit" value="Login">
+  </form>
+  <p>Demo accounts: admin/admin123 and user1/user123</p>
+{% endblock %}
+EOF

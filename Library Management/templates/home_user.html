@@ -1,0 +1,14 @@
+cat > templates/home_user.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>User Homepage</h2>
+  <div class="card">
+    <h3>Reports</h3>
+    <a href="{{ url_for('reports') }}">View Reports</a>
+  </div>
+  <div class="card">
+    <h3>Transactions</h3>
+    <a href="{{ url_for('check_availability') }}">Check Availability / Issue / Return</a>
+  </div>
+{% endblock %}
+EOF

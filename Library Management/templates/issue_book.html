@@ -1,0 +1,27 @@
+cat > templates/issue_book.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Issue Book: {{ book.title }} ({{ book.serial_no }})</h2>
+  <form method="post">
+    {% if users %}
+      <label>Select User
+        <select name="user_id">
+          {% for u in users %}
+            <option value="{{ u.id }}">{{ u.username }} ({{ u.name }})</option>
+          {% endfor %}
+        </select>
+      </label>
+    {% endif %}
+    <label>Issue Date
+      <input type="date" name="issue_date" value="{{ default_issue }}">
+    </label>
+    <label>Return Date (auto 15 days ahead; cannot be > 15 days)
+      <input type="date" name="return_date" value="{{ default_return }}">
+    </label>
+    <label>Remarks (optional)
+      <input type="text" name="remarks">
+    </label>
+    <input type="submit" value="Issue">
+  </form>
+{% endblock %}
+EOF

@@ -1,0 +1,61 @@
+cat > templates/reports.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Reports</h2>
+
+  <h3>Active Issues</h3>
+  <table>
+    <tr><th>ID</th><th>User</th><th>Book</th><th>Issue Date</th><th>Return Date</th><th>Action</th></tr>
+    {% for r in active_issues %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.username }}</td>
+        <td>{{ r.title }}</td>
+        <td>{{ r.issue_date }}</td>
+        <td>{{ r.return_date }}</td>
+        <td>
+          <a href="{{ url_for('return_book', issue_id=r.id) }}">Return</a> |
+          <a href="{{ url_for('pay_fine', issue_id=r.id) }}">Pay Fine</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h3>Overdue</h3>
+  <table>
+    <tr><th>ID</th><th>User</th><th>Book</th><th>Due</th></tr>
+    {% for r in overdue %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.username }}</td>
+        <td>{{ r.title }}</td>
+        <td>{{ r.return_date }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h3>Books</h3>
+  <table>
+    <tr><th>ID</th><th>Title</th><th>Author</th><th>Serial</th><th>Type</th><th>Available</th></tr>
+    {% for b in books %}
+      <tr><td>{{ b.id }}</td><td>{{ b.title }}</td><td>{{ b.author }}</td><td>{{ b.serial_no }}</td><td>{{ b.type }}</td><td>{{ 'Yes' if b.available else 'No' }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h3>Movies</h3>
+  <table>
+    <tr><th>ID</th><th>Title</th><th>Author</th></tr>
+    {% for m in movies %}
+      <tr><td>{{ m.id }}</td><td>{{ m.title }}</td><td>{{ m.author }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h3>Memberships</h3>
+  <table>
+    <tr><th>No</th><th>User</th><th>Start</th><th>End</th><th>Status</th></tr>
+    {% for m in memberships %}
+      <tr><td>{{ m.membership_no }}</td><td>{{ m.username }}</td><td>{{ m.start_date }}</td><td>{{ m.end_date }}</td><td>{{ m.status }}</td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+EOF

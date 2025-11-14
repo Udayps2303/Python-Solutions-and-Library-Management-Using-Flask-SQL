@@ -1,0 +1,25 @@
+cat > templates/home_admin.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Admin Homepage</h2>
+  <div class="card">
+    <h3>Maintenance (Admin access only)</h3>
+    <ul>
+      <li><a href="{{ url_for('add_membership') }}">Add Membership</a></li>
+      <li><a href="{{ url_for('update_membership') }}">Update Membership</a></li>
+      <li><a href="{{ url_for('add_book') }}">Add Book/Movie</a></li>
+      <li><a href="{{ url_for('update_book') }}">Update Book/Movie</a></li>
+      <li><a href="{{ url_for('add_user') }}">Add User</a></li>
+      <li><a href="{{ url_for('update_user') }}">Update User</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Reports (user and admin)</h3>
+    <a href="{{ url_for('reports') }}">View Reports</a>
+  </div>
+  <div class="card">
+    <h3>Transactions (user and admin)</h3>
+    <a href="{{ url_for('check_availability') }}">Check Availability / Issue / Return</a>
+  </div>
+{% endblock %}
+EOF

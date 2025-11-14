@@ -1,0 +1,24 @@
+cat > templates/update_book.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Update Book/Movie</h2>
+  <form method="post">
+    <label>Serial No (to select book)
+      <input type="text" name="serial_no" required>
+    </label>
+    <label>Type
+      <select name="type">
+        <option value="book" selected>Book (default)</option>
+        <option value="movie">Movie</option>
+      </select>
+    </label>
+    <label>Title
+      <input type="text" name="title" required>
+    </label>
+    <label>Author
+      <input type="text" name="author" required>
+    </label>
+    <input type="submit" value="Update">
+  </form>
+{% endblock %}
+EOF

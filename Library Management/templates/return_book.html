@@ -1,0 +1,19 @@
+cat > templates/return_book.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Return Book: {{ issue.title }}</h2>
+  <p>Issue date: {{ issue.issue_date }} | Due: {{ issue.return_date }}</p>
+  <form method="post">
+    <label>Serial No (required)
+      <input type="text" name="serial_no" required>
+    </label>
+    <p>Calculated fine: <strong>{{ "%.2f"|format(fine) }}</strong></p>
+    {% if fine > 0 %}
+      <label><input type="checkbox" name="fine_paid"> Fine Paid (must be selected to complete return)</label>
+    {% else %}
+      <label><input type="checkbox" name="fine_paid"> Confirm return</label>
+    {% endif %}
+    <input type="submit" value="Confirm Return">
+  </form>
+{% endblock %}
+EOF

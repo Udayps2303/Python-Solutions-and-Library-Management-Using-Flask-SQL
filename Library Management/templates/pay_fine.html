@@ -1,0 +1,12 @@
+cat > templates/pay_fine.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Pay Fine for Issue #{{ issue.id }} - {{ issue.title }}</h2>
+  <p>Due Date: {{ issue.return_date }}</p>
+  <p>Calculated fine: <strong>{{ "%.2f"|format(fine) }}</strong></p>
+  <form method="post">
+    <label><input type="checkbox" name="confirm"> I confirm payment (check to proceed)</label>
+    <input type="submit" value="Process Payment">
+  </form>
+{% endblock %}
+EOF

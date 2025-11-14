@@ -1,0 +1,24 @@
+cat > templates/add_user.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Add User</h2>
+  <form method="post">
+    <label>Username
+      <input type="text" name="username" required>
+    </label>
+    <label>Password (will be hidden when typed)
+      <input type="password" name="password" required>
+    </label>
+    <label>Name
+      <input type="text" name="name" required>
+    </label>
+    <label>Role
+      <select name="role">
+        <option value="user" selected>user</option>
+        <option value="admin">admin</option>
+      </select>
+    </label>
+    <input type="submit" value="Add User">
+  </form>
+{% endblock %}
+EOF

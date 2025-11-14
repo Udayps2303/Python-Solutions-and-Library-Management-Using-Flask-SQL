@@ -1,0 +1,22 @@
+cat > templates/add_membership.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Add Membership</h2>
+  <form method="post">
+    <label>Membership No
+      <input type="text" name="membership_no" required>
+    </label>
+    <label>Username (existing user)
+      <input type="text" name="username" required>
+    </label>
+    <label>Duration
+      <select name="duration">
+        <option value="6" selected>6 months (default)</option>
+        <option value="12">12 months</option>
+        <option value="24">24 months</option>
+      </select>
+    </label>
+    <input type="submit" value="Add Membership">
+  </form>
+{% endblock %}
+EOF

@@ -1,0 +1,14 @@
+cat > templates/maintenance.html <<'EOF'
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Maintenance (Admin)</h2>
+  <ul>
+    <li><a href="{{ url_for('add_membership') }}">Add Membership</a></li>
+    <li><a href="{{ url_for('update_membership') }}">Update Membership</a></li>
+    <li><a href="{{ url_for('add_book') }}">Add Book/Movie</a></li>
+    <li><a href="{{ url_for('update_book') }}">Update Book/Movie</a></li>
+    <li><a href="{{ url_for('add_user') }}">Add User</a></li>
+    <li><a href="{{ url_for('update_user') }}">Update User</a></li>
+  </ul>
+{% endblock %}
+EOF
