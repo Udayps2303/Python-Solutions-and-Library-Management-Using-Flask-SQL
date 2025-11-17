@@ -1,1 +1,1 @@
-Library Management for tecnical test of Acxiom 
+Library Management system using Flask & SQL
