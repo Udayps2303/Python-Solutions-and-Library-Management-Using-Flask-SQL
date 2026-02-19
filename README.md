@@ -1,1 +1,1 @@
-Exercism Questions Solutions
+Exercise Questions Solutions
